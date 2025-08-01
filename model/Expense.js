@@ -2,7 +2,7 @@ class Expense {
     static nextId = 1;
 
 
-    constructor(idExpense, amount, categoryExpense, dateExpense = new Date())
+    constructor(amount, categoryExpense, dateExpense = new Date())
     {
         this.idExpense = Expense.nextId++;
         this.amount = amount;
@@ -28,6 +28,10 @@ class Expense {
     getIdExpense()
     {
         return this.idExpense;
+    }
+
+    getFormattedDate() {
+    return this.dateExpense.toISOString().split('T')[0];
     }
 
 }

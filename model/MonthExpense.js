@@ -36,7 +36,12 @@ class MonthExpense {
 
 
     getAllExpenses() {
-        return this.expenses;
+        return this.expenses.map((e) => ({
+            idExpense : e.getIdExpense(),
+            amount : e.getAmount(),
+            categoryExpense : e.getCategoryExpense(),
+            date : e.getFormattedDate(),
+        }));
     }
 
     getMonthIdFromDate(date) {
