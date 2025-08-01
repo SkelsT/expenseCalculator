@@ -1,11 +1,10 @@
 class Expense {
-    amount;
-    categoryExpense;
-    Date;
+    static nextId = 1;
 
 
-    constructor(amount, categoryExpense, Date = new Date())
+    constructor(idExpense, amount, categoryExpense, Date = new Date())
     {
+        this.idExpense = Expense.nextid++;
         this.amount = amount;
         this.categoryExpense = categoryExpense;
         this.Date= new Date();
@@ -24,6 +23,11 @@ class Expense {
     getDate()
     {
         return this.Date;
+    }
+
+    getIdExpense()
+    {
+        return this.idExpense;
     }
 
 

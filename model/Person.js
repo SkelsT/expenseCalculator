@@ -1,16 +1,14 @@
 class Person {
-    personName;
-    salary;
-
-    constructor(personName, salary)
+    
+    constructor(name, salary)
     {
-        this.personName = personName;
+        this.name = name;
         this.salary = salary;
     }
 
     getNamePerson()
     {
-        return this.personName;
+        return this.name;
     }
 
     getSalary()
