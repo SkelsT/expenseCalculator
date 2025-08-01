@@ -1,3 +1,5 @@
+const { Expense } = require('../model/Expense.js');
+
 class MonthExpense {
 
     constructor(monthId) {
@@ -10,7 +12,7 @@ class MonthExpense {
         const alreadyExists = this.expenses.some( (e) => e.getIdExpense() === expense.getIdExpense());
         if (!(expense instanceof Expense)) {
             throw new Error("No es una instancia de Expense");
-        } else if (expenseMonthId === this.monthId) {
+        } else if (expenseMonthId !== this.monthId) {
             throw new Error("La fecha del gasto no corresponde al mes actual");
         } else if (alreadyExists) {
             throw new Error("El gasto ya existe en este mes");
@@ -43,3 +45,5 @@ class MonthExpense {
         return `${year}-${month}`;
     }
 }
+
+module.exports = { MonthExpense };

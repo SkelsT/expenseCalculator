@@ -16,3 +16,5 @@ class Person {
         return this.salary;
     }
 }
+
+module.exports = { Person };

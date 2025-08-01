@@ -1,3 +1,7 @@
+const { MonthExpense } = require('../model/MonthExpense.js');
+const { Expense } = require('../model/Expense.js');
+
+
 class ExpenseCalculator {
     constructor() {
         this.monthExpenses = {};
@@ -40,3 +44,5 @@ class ExpenseCalculator {
     }
 
 }
+
+module.exports = { ExpenseCalculator };

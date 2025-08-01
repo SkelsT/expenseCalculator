@@ -2,12 +2,12 @@ class Expense {
     static nextId = 1;
 
 
-    constructor(idExpense, amount, categoryExpense, Date = new Date())
+    constructor(idExpense, amount, categoryExpense, dateExpense = new Date())
     {
-        this.idExpense = Expense.nextid++;
+        this.idExpense = Expense.nextId++;
         this.amount = amount;
         this.categoryExpense = categoryExpense;
-        this.Date= new Date();
+        this.dateExpense= dateExpense;
     }
 
     getAmount()
@@ -22,7 +22,7 @@ class Expense {
 
     getDate()
     {
-        return this.Date;
+        return this.dateExpense;
     }
 
     getIdExpense()
@@ -30,5 +30,6 @@ class Expense {
         return this.idExpense;
     }
 
-
 }
+
+module.exports = { Expense };
