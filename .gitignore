@@ -1,0 +1,11 @@
+# Archivos temporales / backup
+*.log
+*.tmp
+*.bak
+.DS_Store
+
+# Node modules (por si más adelante agregás npm)
+node_modules/
+
+# Sistema
+.vscode/
