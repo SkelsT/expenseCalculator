@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculadora de Gastos</title>
+        <link rel="stylesheet" href="./view/style.css">
+    </head>
+
+    <body>
+
+        <main>
+            <h1>Calculadora de Gastos</h1>
+
+            <section id="expense-form">
+                <input type="text" id="name" placeholder="Nombre">
+                <input type="number" id="salary" placeholder="Sueldo">
+                <input type="number" id="amount" placeholder="Monto">
+                <input type="text" id="category" placeholder="Categoría">
+                <input type="date" id="date">
+                
+                <button id="add-expense">Agregar Gasto</button>
+
+            </section>
+
+            <section>
+                <h2>Gastos del mes</h2>
+                <ul id="expense-list"></ul>
+                <p>Total: $<span id="total">0</span></p>
+            </section>
+
+        </main>
+        <script type="module" src="./controller/app.js"></script>
+    </body>
+</html>

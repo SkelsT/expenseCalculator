@@ -1,6 +1,6 @@
-const { Expense } = require('../model/Expense.js');
+import { Expense } from './Expense.js';
 
-class MonthExpense {
+export class MonthExpense {
 
     constructor(monthId) {
         this.monthId = monthId;
@@ -51,4 +51,3 @@ class MonthExpense {
     }
 }
 
-module.exports = { MonthExpense };

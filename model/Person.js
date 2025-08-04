@@ -1,4 +1,4 @@
-class Person {
+export class Person {
     
     constructor(name, salary)
     {
@@ -17,4 +17,3 @@ class Person {
     }
 }
 
-module.exports = { Person };

@@ -1,4 +1,4 @@
-class Expense {
+export class Expense {
     static nextId = 1;
 
 
@@ -39,4 +39,3 @@ class Expense {
     
 }
 
-module.exports = { Expense };

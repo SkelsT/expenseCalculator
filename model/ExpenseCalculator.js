@@ -1,9 +1,9 @@
-const { MonthExpense } = require('../model/MonthExpense.js');
-const { Expense } = require('../model/Expense.js');
-const { Person } = require('../model/Person.js');
+import { MonthExpense } from './MonthExpense.js';
+import { Expense } from './Expense.js';
+import { Person } from './Person.js';
 
 
-class ExpenseCalculator {
+export class ExpenseCalculator {
     constructor(person, salary) {
         this.person = new Person(person, salary);
         this.monthExpenses = {};
@@ -50,5 +50,3 @@ class ExpenseCalculator {
     }
 
 }
-
-module.exports = { ExpenseCalculator };
