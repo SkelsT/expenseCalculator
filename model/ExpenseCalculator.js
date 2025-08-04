@@ -1,13 +1,13 @@
 const { MonthExpense } = require('../model/MonthExpense.js');
 const { Expense } = require('../model/Expense.js');
+const { Person } = require('../model/Person.js');
 
 
 class ExpenseCalculator {
-    constructor() {
+    constructor(person, salary) {
+        this.person = new Person(person, salary);
         this.monthExpenses = {};
     }
-
-    
 
     addExpenseToMonth(monthId, expense) {
         if (!this.monthExpenses[monthId]) {
@@ -34,6 +34,12 @@ class ExpenseCalculator {
     listExpensesByMonth(monthId) {
         this.ensureMonthId(monthId) 
         return this.monthExpenses[monthId].getAllExpenses();
+    }
+
+    calculateMonthlyExpensesWithSalary(monthId) {
+        this.ensureMonthId(monthId) 
+        const salary = this.person.getSalary();
+        return salary - this.monthExpenses[monthId].calculateTotalExpenses();  
     }
     
     

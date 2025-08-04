@@ -20,9 +20,11 @@ class Expense {
         return this.categoryExpense;
     }
 
-    getDate()
+    getDateMonthlyExpense()
     {
-        return this.dateExpense;
+        const year = this.dateExpense.getFullYear();
+        const month = String(this.dateExpense.getMonth() + 1).padStart(2, '0');
+        return `${year}-${month}`;
     }
 
     getIdExpense()
@@ -34,6 +36,7 @@ class Expense {
     return this.dateExpense.toISOString().split('T')[0];
     }
 
+    
 }
 
 module.exports = { Expense };

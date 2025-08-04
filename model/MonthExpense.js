@@ -8,7 +8,7 @@ class MonthExpense {
     }
 
     addExpense(expense) {
-        const expenseMonthId = this.getMonthIdFromDate(expense.getDate());
+        const expenseMonthId = expense.getDateMonthlyExpense();
         const alreadyExists = this.expenses.some( (e) => e.getIdExpense() === expense.getIdExpense());
         if (!(expense instanceof Expense)) {
             throw new Error("No es una instancia de Expense");
