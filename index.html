@@ -2,33 +2,65 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <title>Calculadora de Gastos</title>
         <link rel="stylesheet" href="./view/style.css">
     </head>
 
     <body>
+        <div class="overlay">
 
         <main>
-            <h1>Calculadora de Gastos</h1>
-
-            <section id="expense-form">
-                <input type="text" id="name" placeholder="Nombre">
-                <input type="number" id="salary" placeholder="Sueldo">
-                <input type="number" id="amount" placeholder="Monto">
-                <input type="text" id="category" placeholder="Categoría">
-                <input type="date" id="date">
-                
-                <button id="add-expense">Agregar Gasto</button>
-
+            <section class="header-section">
+                <div class="title-container">
+                    <h1>Calculadora de Gastos</h1>
+                </div>
             </section>
 
-            <section>
-                <h2>Gastos del mes</h2>
-                <ul id="expense-list"></ul>
-                <p>Total: $<span id="total">0</span></p>
+            <section class="user-section">
+                <div class="user-info">
+                    <input type="text" id="username" placeholder="Nombre">
+                    <input type="number" id="salary" placeholder="Sueldo(opcional)">
+                    <button id="add-user">Ingresar</button>
+                </div>
             </section>
+
+            <section class="expensive-section">
+                <div class="expensive-info">
+                    <input type="number" id="amount" placeholder="Ingrese un Monto">
+                    <input type="text" id="category" placeholder="Elija una Categoria">
+                    <input type="date" id="date">
+                    <input type="text" id="description" placeholder="Descripción(opcional)">
+                    <button id="add-expensive">Agregar Gasto</button>
+                </div>
+            </section>
+
+            <section class="list-section">
+                <div class="list-expenses">
+                    <select id="month-selector">
+                    </select>
+                    <ul id="expense-list"></ul>
+                </div>
+            </section>
+
+            <section class="summary-section">
+                <div class="graph-and-info">
+                    <canvas id="expenses-chart"></canvas>
+                    <div class="summary-labels">
+                        <p>Sueldo: $<span id="display-salary">0</span></p>
+                        <p>Gastos: $<span id="display-expenses">0</span></p>
+                        <p>Te resta: $<span id="display-diference">0</span></p>
+                    </div>
+                </div>
+            </section>
+
+
+
 
         </main>
+        </div>
         <script type="module" src="./controller/app.js"></script>
     </body>
 </html>
