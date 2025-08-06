@@ -15,26 +15,28 @@
         <main>
             <section class="header-section">
                 <div class="title-container">
-                    <h1>Calculadora de Gastos</h1>
+                    <h1>CALCULADORA DE GASTOS</h1>
                 </div>
             </section>
 
             <section class="user-section">
+                <h2>Ingresa tus Datos</h2>
                 <div class="user-info">
-                    <input type="text" id="username" placeholder="Nombre">
-                    <input type="number" id="salary" placeholder="Sueldo(opcional)">
-                    <button id="add-user">Ingresar</button>
+                    <input type="text" id="username" class="form-input" placeholder="Nombre" >
+                    <input type="number" id="salary" class="form-input" placeholder="Sueldo(opcional)">
                 </div>
+                <button id="add-user" class="button-userinfo">Ingresar</button>     
             </section>
 
             <section class="expensive-section">
+                <h2>Agregar Gasto</h2>
                 <div class="expensive-info">
                     <input type="number" id="amount" placeholder="Ingrese un Monto">
                     <input type="text" id="category" placeholder="Elija una Categoria">
                     <input type="date" id="date">
-                    <input type="text" id="description" placeholder="Descripción(opcional)">
-                    <button id="add-expensive">Agregar Gasto</button>
+                    <input type="text" id="description" placeholder="Descripción(opcional)">    
                 </div>
+                <button id="add-expensive">Agregar Gasto</button>
             </section>
 
             <section class="list-section">
