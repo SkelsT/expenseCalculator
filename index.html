@@ -25,25 +25,63 @@
                     <input type="text" id="username" class="user-input" placeholder="Nombre" >
                     <input type="number" id="salary" class="user-input" placeholder="Sueldo(opcional)">
                 </div>
-                <button id="add-user" class="button-userinfo">Ingresar</button>     
+                <button id="add-user" class="button">Ingresar</button>     
             </section>
 
             <section class="expensive-section">
                 <h2>Agregar Gasto</h2>
                 <div class="expensive-info">
-                    <input type="number" id="amount"  class="form-input" placeholder="Ingrese un Monto">
-                    <input type="text" id="category" class="form-input"  placeholder="Elija una Categoria">
-                    <input type="date" id="date"  class="form-input">
-                    <input type="text" id="description" placeholder="Descripción(opcional)">
+
+                    <div class="row">
+                        <div class="input-group">
+                            <label for="amount">Monto</label>
+                            <input type="number" id="amount"  class="form-input" placeholder="Ingrese un Monto">
+                        </div>
+                   
+
+                        <div class="input-group">
+                            <label for="category">Categoría</label>
+                            <input type="text" id="category" class="form-input"  placeholder="Elija una Categoria">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <label for="date">Fecha</label>
+                            <input type="date" id="date"  class="form-input">
+                        </div>
+
+
+                        <div class="input-group long">
+                            <label for="description">Descripción</label>
+                            <input type="text" id="description" class="form-input" placeholder="Descripción(opcional)">
+                        </div>
+                    </div>
                 </div>
-                <button id="add-expensive" class="button-addexpense">Agregar Gasto</button>
+                <button id="add-expensive" class="button">Agregar Gasto</button>
             </section>
 
             <section class="list-section">
-                <div class="list-expenses">
-                    <select id="month-selector">
-                    </select>
-                    <ul id="expense-list"></ul>
+                <h3>Gastos</h3>
+
+                <div class="month-selector">
+                    <label for month:>Selecciona un mes:</label>
+                    <input type="month" id="month">
+                </div>
+
+                <div class="table-container">
+                    <table class="expense-table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Monto</th>
+                                <th>Categoría</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expense-table-body">
+                        </tbody> 
+                    </table>
                 </div>
             </section>
 
