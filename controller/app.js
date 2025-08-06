@@ -15,6 +15,34 @@ const expenseList = document.getElementById('expense-list');
 const totalSpan = document.getElementById('total');
 const addButton = document.getElementById('add-expense');
 
+
+const ctx = document.getElementById("expenses-chart");
+
+const dataChart = {
+    labels: ['Comida', 'Transporte', 'Ropa'],
+    datasets: [{
+        label: 'Gastos por categoría',
+        data: [500,300,200],
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+        borderWidth: 1
+    }]
+};
+
+new Chart(ctx, {
+    type: "doughnut",
+    data: dataChart,
+    options: {
+        responsive: false,
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+    }
+});
+
+
+
 addButton.addEventListener('click', () => {
     
     const amount = parseFloat(amountInput.value);

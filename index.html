@@ -2,6 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -61,43 +62,43 @@
                 <button id="add-expensive" class="button">Agregar Gasto</button>
             </section>
 
-            <section class="list-section">
-                <h3>Gastos</h3>
+            <section class="list-summary-section">
+                <h3>Sumario</h3>
+                <div class="summary-container">
+                    <div class="list-section">
+                        <div class="month-selector">
+                            <label for month:>Selecciona un mes:</label>
+                            <input type="month" id="month">
+                        </div>
 
-                <div class="month-selector">
-                    <label for month:>Selecciona un mes:</label>
-                    <input type="month" id="month">
-                </div>
+                        <div class="table-container-summary">
+                            <table class="expense-table">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Monto</th>
+                                        <th>Categoría</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="expense-table-body">
+                                </tbody> 
+                            </table>
+                        </div>
+                    </div>
 
-                <div class="table-container">
-                    <table class="expense-table">
-                        <thead>
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Monto</th>
-                                <th>Categoría</th>
-                                <th>Descripción</th>
-                            </tr>
-                        </thead>
-                        <tbody id="expense-table-body">
-                        </tbody> 
-                    </table>
-                </div>
-            </section>
+                    <div class="graph-and-info">
+                        <div class="chart-legend" id="chart-legend"></div>
+                        <canvas id="expenses-chart" width="200" height="200"></canvas>
 
-            <section class="summary-section">
-                <div class="graph-and-info">
-                    <canvas id="expenses-chart"></canvas>
-                    <div class="summary-labels">
-                        <p>Sueldo: $<span id="display-salary">0</span></p>
-                        <p>Gastos: $<span id="display-expenses">0</span></p>
-                        <p>Te resta: $<span id="display-diference">0</span></p>
+                        <div class="summary-labels">
+                            <p>Sueldo: $<span id="display-salary">0</span></p>
+                            <p>Gastos: $<span id="display-expenses">0</span></p>
+                            <p>Te resta: $<span id="display-diference">0</span></p>
+                        </div>
                     </div>
                 </div>
             </section>
-
-
-
 
         </main>
         </div>
