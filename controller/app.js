@@ -1,23 +1,11 @@
 import { Expense } from '../model/Expense.js';
 import { ExpenseCalculator } from '../model/ExpenseCalculator.js';
-import { Person } from '../model/Person.js';
-import { MonthExpense } from '../model/MonthExpense.js';
-import view from '../view/view.js';
 import { UserController } from './UserController.js';
+import { ExpenseController} from './ExpenseController.js';
 
 const userController = new UserController();
-
-
-
-const sistema = new ExpenseCalculator("insta", 4500);
-const nombre = document.getElementById('name');
-const sueldo = document.getElementById('salary');
-const amountInput = document.getElementById('amount');
-const categoryInput = document.getElementById('category');
-const dateInput = document.getElementById('date');
-const expenseList = document.getElementById('expense-list');
-const totalSpan = document.getElementById('total');
-const addButton = document.getElementById('add-expense');
+const sistema = new ExpenseCalculator();
+const expenseController = new ExpenseController(sistema);
 
 
 const ctx = document.getElementById("expenses-chart");
@@ -45,23 +33,6 @@ new Chart(ctx, {
     }
 });
 
-
-addButton.addEventListener('click', () => {
-    const {amount, category, date, description } = view.getExpenseInputs();
-
-    if (isNaN(amount) || !category || !dateInput.value) {
-        alert("Por favor complete todos los campos");
-        return;
-    }
-
-    const expense = new Expense(amount, category, date, description);
-    const monthId = expense.getDateMonthlyExpense();
-
-    sistema.addExpenseToMonth(monthId, expense);
-
-    view.showExpenseInTable(expense);
-    view.clearExpenseInputs();
-});
 
 
 

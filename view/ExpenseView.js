@@ -22,7 +22,7 @@ export default class ExpenseView {
     this.amountInput.value = "";
     this.categoryInput.value = "";
     this.dateInput.value = "";
-    this.descriptionInput = "";
+    this.descriptionInput.value = "";
     }
 
     showExpenseInTable({ dateExpense, amountExpense, categoryExpense, descriptionExpense}) {

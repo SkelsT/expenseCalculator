@@ -19,7 +19,6 @@ export class UserController {
         }
 
         this.person = new Person(namePerson, salaryPerson);
-        console.log("llegue aca");
         this.view.showGreeting(this.person.getNamePerson());
         this.view.showSalaryOnLabel(this.person.getSalary());
         

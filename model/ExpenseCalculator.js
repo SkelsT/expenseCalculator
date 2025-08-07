@@ -32,7 +32,7 @@ export class ExpenseCalculator {
     
 
     listExpensesByMonth(monthId) {
-        this.ensureMonthId(monthId) 
+        this.ensureMonthId(monthId);
         return this.monthExpenses[monthId].getAllExpenses();
     }
 
@@ -45,7 +45,7 @@ export class ExpenseCalculator {
     
     ensureMonthId(monthId) {
     if (!this.monthExpenses[monthId]) {
-            throw new Error("No hay gastos registrados para este mes");
+            return [];
         }
     }
 
