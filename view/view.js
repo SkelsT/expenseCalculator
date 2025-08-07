@@ -1,3 +1,6 @@
+
+
+
 export function getExpenseInputs() {
     return {
         amount: parseFloat(document.getElementById('amount').value),

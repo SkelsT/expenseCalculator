@@ -3,6 +3,9 @@ import { ExpenseCalculator } from '../model/ExpenseCalculator.js';
 import { Person } from '../model/Person.js';
 import { MonthExpense } from '../model/MonthExpense.js';
 import view from '../view/view.js';
+import { UserController } from './UserController.js';
+
+const userController = new UserController();
 
 
 
