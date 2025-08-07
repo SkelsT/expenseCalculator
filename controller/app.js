@@ -2,6 +2,7 @@ import { Expense } from '../model/Expense.js';
 import { ExpenseCalculator } from '../model/ExpenseCalculator.js';
 import { Person } from '../model/Person.js';
 import { MonthExpense } from '../model/MonthExpense.js';
+import view from '../view/view.js';
 
 
 
@@ -35,43 +36,29 @@ new Chart(ctx, {
         responsive: false,
         plugins: {
             legend: {
-                display: false
+                display: false,
             }
         }
     }
 });
 
 
-
 addButton.addEventListener('click', () => {
-    
-    const amount = parseFloat(amountInput.value);
-    const category = categoryInput.value;
-    const date = new Date(dateInput.value);
+    const {amount, category, date, description } = view.getExpenseInputs();
 
-
-    if(isNaN(amount) || !category || !dateInput.value) {
+    if (isNaN(amount) || !category || !dateInput.value) {
         alert("Por favor complete todos los campos");
         return;
     }
-    
 
-    const expense = new Expense(amount, category, date);
+    const expense = new Expense(amount, category, date, description);
     const monthId = expense.getDateMonthlyExpense();
-
 
     sistema.addExpenseToMonth(monthId, expense);
 
-    const li = document.createElement('li');
-    li.textContent = `${expense.getFormattedDate()} - ${category}: $${amount}`;
-    expenseList.appendChild(li);
-
-    totalSpan.textContent = sistema.calculateMonthlyExpense(monthId);
-
-
-    amountInput.value = "";
-    categoryInput.value = "";
-    dateInput.value = "";
-
-
+    view.showExpenseInTable(expense);
+    view.clearExpenseInputs();
 });
+
+
+

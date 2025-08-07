@@ -41,6 +41,7 @@ export class MonthExpense {
             amount : e.getAmount(),
             categoryExpense : e.getCategoryExpense(),
             date : e.getFormattedDate(),
+            description : e.getDescriptionExpense(),
         }));
     }
 

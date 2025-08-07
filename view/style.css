@@ -150,9 +150,9 @@ h2 {
 .list-summary-section {
   border: 2px solid rgb(75 70 74);
   border-radius: 0.5em;
-  padding: 10px;
+  padding: 5px;
   position: relative;
-  top: 20px;
+  top: 10px;
   
 }
 
@@ -161,7 +161,6 @@ h3 {
   font-size: 30px;
   position: relative;
   top: -30px;
-  
 }
 
 
@@ -170,12 +169,12 @@ h3 {
   display: flex;
   justify-content: space-between;
   gap: 40px;
+  margin-top: -40px;
 }
 
 .list-section {
-  border: 2px solid rgb(75 70 74);
-  border-radius: 0.5em;
   flex: 1;
+
 }
 
 .month-selector {
@@ -186,6 +185,11 @@ h3 {
 .month-selector label {
   margin-right: 10px;
   font-weight: 500;
+}
+
+.table-container-summary {
+  border: 2px solid rgb(75 70 74);
+  border-radius: 0.5em;
 }
 
 .expense-table {

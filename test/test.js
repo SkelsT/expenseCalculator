@@ -4,7 +4,7 @@ const { Person } = require('../model/Person.js');
 
 const sistema = new ExpenseCalculator("Emanuel", 4500);
 
-const gasto1 = new Expense(500, "Comida", new Date());
+const gasto1 = new Expense(500, "Comida", new Date(), "comida para la ropa");
 const gasto2 = new Expense(300, "Transporte", new Date());
 const persona1 = new Person("Daniel", 4500);
 
