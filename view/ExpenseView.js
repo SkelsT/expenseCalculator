@@ -7,7 +7,7 @@ export default class ExpenseView {
         this.submitButton = document.getElementById("add-expense");
         this.tableBody = document.getElementById("expense-table-body");
         this.monthSelector = document.getElementById("month");   
-        const ctx = document.getElementById("expenses-chart");
+        this.ctx = document.getElementById("expenses-chart");
         this.chart = null; 
         
     }
@@ -64,6 +64,9 @@ export default class ExpenseView {
     }
 
     createChart(labels,data,colors) {
+        if (this.chart) {
+            this.chart.destroy();
+        }
         const dataChart = {
             labels: labels,
             datasets: [{
@@ -95,6 +98,7 @@ export default class ExpenseView {
         this.chart.data.datasets[0].data = data;
         this.chart.data.datasets[0].backgroundColor = colors;
         this.chart.update();
+        
     }
 
         
