@@ -8,7 +8,7 @@ const sistema = new ExpenseCalculator();
 const expenseController = new ExpenseController(sistema);
 
 
-const ctx = document.getElementById("expenses-chart");
+/* const ctx = document.getElementById("expenses-chart");
 
 const dataChart = {
     labels: ['Comida', 'Transporte', 'Ropa'],
@@ -36,3 +36,4 @@ new Chart(ctx, {
 
 
 
+*/

@@ -34,6 +34,6 @@ console.log("Gastos del mes:", sistema.listExpensesByMonth(mesId));
 console.log("Gastos:", sistema.listExpensesByMonth(mesId2));
 console.log("Total del mes:", sistema.calculateMonthlyExpense(mesId));
 console.log("Total del mes:", sistema.calculateMonthlyExpense(mesId2));
-console.log("Gasto en comida:", sistema.calculateMonthlyExpenseByCategory(mesId, "Comida"));
+console.log("Gasto por categoria", sistema.calculateMonthlyExpenseByCategory(mesId, "Comida"));
 console.log("A usted le queda este sueldo:", sistema.calculateMonthlyExpensesWithSalary(mesId));
 

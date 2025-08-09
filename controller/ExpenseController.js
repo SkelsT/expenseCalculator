@@ -31,23 +31,34 @@ export class ExpenseController {
 
     handleMonthChange() {
         const selectedMonth = this.view.monthSelector.value;
-    
-
-        this.view.clearTable();
-        
+            
         try {
-             const expenses = this.calculator.listExpensesByMonth(selectedMonth);
-        
-        for (const expense of expenses) {
-            console.log(expenses);
-            this.view.showExpenseInTable({
-                                        dateExpense: expense.getFormattedDate(),
-                                        amountExpense: expense.getAmount(),
-                                        categoryExpense: expense.getCategoryExpense(),
-                                        descriptionExpense: expense.getDescriptionExpense()
-                                    });
-        }
-        } catch(error) {
+            /* cambia gráfico*/
+            const {labels, data} = this.calculator.calculateMonthlyExpenseByCategory(selectedMonth);
+            const colors = labels.map((_, i) => `hsl(${i * 60}, 70%, 60%)`);
+            this.view.createChart(labels, data, colors);
+           
+
+
+            /*¨cambia label */
+            const totalExpenses = this.calculator.calculateMonthlyExpense(selectedMonth);
+            this.view.showExpensesTotalMonthLabel(totalExpenses);
+
+            /*muestra en tabla */
+            const expenses = this.calculator.listExpensesByMonth(selectedMonth);
+            
+            for (const expense of expenses) {
+                this.view.showExpenseInTable({
+                                            dateExpense: expense.getFormattedDate(),
+                                            amountExpense: expense.getAmount(),
+                                            categoryExpense: expense.getCategoryExpense(),
+                                            descriptionExpense: expense.getDescriptionExpense()
+                                        });
+            
+            }    
+        } catch(error) {  
+            this.view.clearTable();
+            this.view.clearLabelExpenses();
             console.warn(error.message);
         }
     }

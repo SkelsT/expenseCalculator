@@ -25,11 +25,26 @@ export class ExpenseCalculator {
         
     }
 
-    calculateMonthlyExpenseByCategory(monthId, category) {
+    calculateMonthlyExpenseByCategory(monthId) {
         this.ensureMonthId(monthId)
-        return this.monthExpenses[monthId].calculateExpensesByCategory(category);
+        const expenses = this.monthExpenses[monthId].getAllExpenses();
+        const categoryTotals = {};
+
+        expenses.forEach(expense => { 
+            const category = expense.getCategoryExpense();
+            const amount = expense.getAmount();
+            if (categoryTotals[category]) {
+                categoryTotals[category] += amount;
+            } else {
+                categoryTotals[category] = amount;
+        }
+        });
+        const labels = Object.keys(categoryTotals);
+        const data = Object.values(categoryTotals);
+       
+        return {labels, data};
     }
-    
+
 
     listExpensesByMonth(monthId) {
         this.ensureMonthId(monthId);
