@@ -188,8 +188,10 @@ h3 {
 }
 
 .table-container-summary {
+  max-height: 280px;
   border: 2px solid rgb(75 70 74);
   border-radius: 0.5em;
+  overflow-y: auto;
 }
 
 .expense-table {
@@ -197,6 +199,7 @@ h3 {
   color: white;
   table-layout: fixed;
   min-width: 800px;
+  border-collapse: collapse;
 }
 
 .expense-table th,

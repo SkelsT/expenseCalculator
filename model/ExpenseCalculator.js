@@ -61,7 +61,6 @@ export class ExpenseCalculator {
     ensureMonthId(monthId) {
     if (!this.monthExpenses[monthId]) {
            this.monthExpenses[monthId] = new MonthExpense(monthId);
-           console.log(this.monthExpenses);
         }
     }
 

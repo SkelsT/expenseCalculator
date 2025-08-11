@@ -64,9 +64,6 @@ export default class ExpenseView {
     }
 
     createChart(labels,data,colors) {
-        if (this.chart) {
-            this.chart.destroy();
-        }
         const dataChart = {
             labels: labels,
             datasets: [{

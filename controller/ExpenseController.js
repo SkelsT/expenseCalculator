@@ -33,19 +33,24 @@ export class ExpenseController {
         const selectedMonth = this.view.monthSelector.value;
             
         try {
-            /* cambia gráfico*/
-            const {labels, data} = this.calculator.calculateMonthlyExpenseByCategory(selectedMonth);
-            const colors = labels.map((_, i) => `hsl(${i * 60}, 70%, 60%)`);
+            /*¨cambia label */
+            const totalExpenses = this.calculator.calculateMonthlyExpense(selectedMonth);
+            this.view.showExpensesTotalMonthLabel(totalExpenses);
+
+            /* crea y cambia gráfico*/
+            let {labels, data} = this.calculator.calculateMonthlyExpenseByCategory(selectedMonth);
+            let colors = labels.map((_, i) => `hsl(${i * 60}, 70%, 60%)`);
+            if (labels.length === 0) {
+                labels = ["No Existen Gastos"];
+                data = [1];
+                colors = ["#cccccc"];
+            }
+
             if (this.view.chart) {
                 this.view.updateChart(labels,data,colors);
             } else {
             this.view.createChart(labels, data, colors);
             }
-
-
-            /*¨cambia label */
-            const totalExpenses = this.calculator.calculateMonthlyExpense(selectedMonth);
-            this.view.showExpensesTotalMonthLabel(totalExpenses);
 
             /*muestra en tabla */
             this.view.clearTable();
