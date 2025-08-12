@@ -11,15 +11,16 @@ export class UserController {
     }
 
     handleUserSubmit() {
+        try {
         const { namePerson, salaryPerson } = this.view.getUserInput();
 
-        if(!namePerson) {
-            alert('Por favor ingrese un nombre');
-            return;
-        }
+        this.view.clearError();
         this.person = new Person(namePerson, salaryPerson);
         this.view.showGreeting(this.person.getNamePerson());
         this.view.showSalaryOnLabel(this.person.getSalary());
         
+    } catch (error) {
+        this.view.showError(error.message);
     }
+}
 }

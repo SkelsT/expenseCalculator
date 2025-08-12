@@ -4,8 +4,7 @@ import { Person } from './Person.js';
 
 
 export class ExpenseCalculator {
-    constructor(person, salary) {
-        this.person = new Person(person, salary);
+    constructor() {
         this.monthExpenses = {};
     }
 

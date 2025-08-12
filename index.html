@@ -12,7 +12,6 @@
 
     <body>
         <div class="overlay">
-
         <main>
             <section class="header-section">
                 <div class="title-container">
@@ -26,8 +25,10 @@
                     <input type="text" id="username" class="user-input" placeholder="Nombre" >
                     <input type="number" id="salary" class="user-input" placeholder="Sueldo(opcional)">
                 </div>
-                <button id="add-user" class="button">Ingresar</button>     
+                <button id="add-user" class="button">Ingresar</button>   
+                <div id="user-error-message" class="user-error-message"></div>  
             </section>
+            
 
             <section class="expensive-section">
                 <h2>Agregar Gasto</h2>
@@ -43,7 +44,7 @@
                         <div class="input-group">
                             <label for="category">Categoría</label>
                             <select id="category" class="form-input">
-                                <option disabled selected>Selecciona una Categoría</option>
+                                <option value="" disabled selected>Selecciona una Categoría</option>
                                 <option value="Ropa">Ropa</option>
                                 <option value="Comida">Comida</option>
                                 <option value="Ocio">Ocio</option>
@@ -60,7 +61,7 @@
                     <div class="row">
                         <div class="input-group">
                             <label for="date">Fecha</label>
-                            <input type="date" id="date"  class="form-input">
+                            <input type="date" id="date" class="form-input" required>
                         </div>
 
 
@@ -71,7 +72,9 @@
                     </div>
                 </div>
                 <button id="add-expense" class="button">Agregar Gasto</button>
+                <div id="error-message" class="container-error-message"></div>
             </section>
+            
 
             <section class="list-summary-section">
                 <h3>Sumario</h3>
@@ -110,7 +113,6 @@
                     </div>
                 </div>
             </section>
-
         </main>
         </div>
         <script type="module" src="./controller/app.js"></script>

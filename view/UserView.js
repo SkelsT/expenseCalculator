@@ -34,6 +34,17 @@ onSubmit(callback) {
     this.submitButton.addEventListener('click', callback);
 }
 
+showError(message) {
+    const errorDiv = document.querySelector("#user-error-message");
+    errorDiv.textContent = message;
+    errorDiv.style.display = "Block";
+    }
+
+clearError() {
+    const errorDiv = document.querySelector("#user-error-message");
+    errorDiv.textContent = "";
+    }
+
 
 
 }

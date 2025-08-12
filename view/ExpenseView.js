@@ -99,5 +99,16 @@ export default class ExpenseView {
         
     }
 
+    showError(message) {
+        const errorDiv = document.querySelector("#error-message");
+        errorDiv.textContent = message;
+        errorDiv.style.display = "Block";
+    }
+
+    clearError() {
+    const errorDiv = document.querySelector("#error-message");
+    errorDiv.textContent = "";
+    }
+
         
 }

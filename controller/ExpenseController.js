@@ -12,24 +12,22 @@ export class ExpenseController {
     }
 
     handleExpenseSubmit(expenseData) {
+        try {
         const { amountExpense, categoryExpense, dateExpense, descriptionExpense } = this.view.getExpenseInput();
-        if (isNaN(amountExpense) || !categoryExpense || !dateExpense) {
-        alert("Por favor complete todos los campos");
-        return;
-        }
         
         const expense = new Expense(amountExpense, categoryExpense, new Date(dateExpense), descriptionExpense);
         const monthId = expense.getDateMonthlyExpense();
 
-         console.log(dateExpense);
-         console.log(monthId);
-
         this.calculator.addExpenseToMonth(monthId, expense);
         this.view.clearExpenseInputs();
+        this.view.clearError();
 
         const selectedMonth = this.view.monthSelector.value;
         if(selectedMonth === monthId) {
             this.handleMonthChange();
+        } 
+        } catch (error) {
+            this.view.showError(error.message);
         }
     
     }
