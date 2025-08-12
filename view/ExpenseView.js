@@ -46,7 +46,8 @@ export default class ExpenseView {
     showExpensesTotalMonthLabel(totalExpenses) {
         const element = document.getElementById('display-expenses');
         element.textContent= `${totalExpenses}`;
-
+        console.log(element);
+        console.log(totalExpenses);
     }
 
     clearLabelExpenses() {

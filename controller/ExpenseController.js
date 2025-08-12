@@ -13,7 +13,6 @@ export class ExpenseController {
 
     handleExpenseSubmit(expenseData) {
         const { amountExpense, categoryExpense, dateExpense, descriptionExpense } = this.view.getExpenseInput();
-        
         if (isNaN(amountExpense) || !categoryExpense || !dateExpense) {
         alert("Por favor complete todos los campos");
         return;
@@ -22,9 +21,16 @@ export class ExpenseController {
         const expense = new Expense(amountExpense, categoryExpense, new Date(dateExpense), descriptionExpense);
         const monthId = expense.getDateMonthlyExpense();
 
-        this.calculator.addExpenseToMonth(monthId, expense);
+         console.log(dateExpense);
+         console.log(monthId);
 
+        this.calculator.addExpenseToMonth(monthId, expense);
         this.view.clearExpenseInputs();
+
+        const selectedMonth = this.view.monthSelector.value;
+        if(selectedMonth === monthId) {
+            this.handleMonthChange();
+        }
     
     }
 
@@ -35,6 +41,7 @@ export class ExpenseController {
         try {
             /*¨cambia label */
             const totalExpenses = this.calculator.calculateMonthlyExpense(selectedMonth);
+
             this.view.showExpensesTotalMonthLabel(totalExpenses);
 
             /* crea y cambia gráfico*/
@@ -54,7 +61,7 @@ export class ExpenseController {
 
             /*muestra en tabla */
             this.view.clearTable();
-            this.view.clearLabelExpenses();
+            
             const expenses = this.calculator.listExpensesByMonth(selectedMonth);
             
             for (const expense of expenses) {
