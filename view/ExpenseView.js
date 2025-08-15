@@ -9,6 +9,8 @@ export default class ExpenseView {
         this.monthSelector = document.getElementById("month");   
         this.ctx = document.getElementById("expenses-chart");
         this.chart = null; 
+        this.onDeleteExpense = null;
+        this.onEditExpense = null;
         
     }
 
@@ -28,15 +30,32 @@ export default class ExpenseView {
     this.descriptionInput.value = "";
     }
 
-    showExpenseInTable({ dateExpense, amountExpense, categoryExpense, descriptionExpense}) {
+    showExpenseInTable({ idExpense, dateExpense, amountExpense, categoryExpense, descriptionExpense}) {
     const row = document.createElement('tr');
     row.innerHTML = `
         <td>${dateExpense}</td>
         <td>$${amountExpense}</td>
         <td>${categoryExpense}</td>
         <td>${descriptionExpense}</td>
+        <td>
+            <button class="edit-btn" data-id="${idExpense}">✏️</button>
+            <button class="delete-btn" data-id="${idExpense}">🗑️</button>
+        </td>
     `;
     this.tableBody.appendChild(row);
+
+    //Boton eliminar
+    row.querySelector(".delete-btn").addEventListener("click", e => {
+        const id = e.target.getAttribute("data-id");
+        if(this.onDeleteExpense) this.onDeleteExpense(id);
+    })
+
+    //Boton editar
+    row.querySelector(".edit-btn").addEventListener("click", e => {
+        const id = e.target.getAttribute("edit-btn");
+        if(this.onEditExpense) this.onEditExpense(id);
+    })
+
 }
 
     clearTable() {
@@ -46,8 +65,6 @@ export default class ExpenseView {
     showExpensesTotalMonthLabel(totalExpenses) {
         const element = document.getElementById('display-expenses');
         element.textContent= `${totalExpenses}`;
-        console.log(element);
-        console.log(totalExpenses);
     }
 
     clearLabelExpenses() {

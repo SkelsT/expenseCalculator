@@ -12,6 +12,10 @@ export class Expense {
         if (amount < 0) {
             throw new Error("El monto debe ser mayor o igual a 0");
         }
+        if (new Date(dateExpense).getTime() > new Date())
+        {
+            throw new Error("Ingrese una fecha actual o anterior");
+        }
         this.idExpense = Expense.nextId++;
         this.amount = amount;
         this.categoryExpense = categoryExpense;

@@ -24,6 +24,14 @@ export class ExpenseCalculator {
         
     }
 
+    deleteExpenseFromMonth(idExpense, monthId) {
+        return this.monthExpenses[monthId].deleteExpense(idExpense);
+    }
+
+    updateExpenseFromMonth(idExpense, monthId) {
+        return this.monthExpenses[monthId].updateExpense(idExpense);
+    }
+
     calculateMonthlyExpenseByCategory(monthId) {
         this.ensureMonthId(monthId)
         const expenses = this.monthExpenses[monthId].getAllExpenses();

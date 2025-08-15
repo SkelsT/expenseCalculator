@@ -1,5 +1,5 @@
 import { Person } from '../model/Person.js';
-import  UserView  from '../view/userView.js';
+import  UserView  from '../view/UserView.js';
 
 
 export class UserController {

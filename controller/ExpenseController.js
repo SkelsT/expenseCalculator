@@ -9,6 +9,16 @@ export class ExpenseController {
 
         this.view.onAddExpense((expenseData) => this.handleExpenseSubmit(expenseData));
         this.view.onMonthChange(() => this.handleMonthChange());
+        this.view.onDeleteExpense = (idExpense) => {
+            const selectedMonth = this.view.monthSelector.value;          
+            this.calculator.deleteExpenseFromMonth(idExpense, selectedMonth);
+            this.handleMonthChange();
+        }
+        this.view.onEditExpense = (idExpense, updateData) => {
+            const selectedMonth = this.view.monthSelector.value; 
+            this.calculator.updateExpenseFromMonth(idExpense, selectedMonth, updateData);
+            this.handleMonthChange();
+        }
     }
 
     handleExpenseSubmit(expenseData) {
@@ -21,6 +31,8 @@ export class ExpenseController {
         this.calculator.addExpenseToMonth(monthId, expense);
         this.view.clearExpenseInputs();
         this.view.clearError();
+
+
 
         const selectedMonth = this.view.monthSelector.value;
         if(selectedMonth === monthId) {
@@ -57,6 +69,8 @@ export class ExpenseController {
             this.view.createChart(labels, data, colors);
             }
 
+            console.log(totalExpenses);
+
             /*muestra en tabla */
             this.view.clearTable();
             
@@ -64,6 +78,7 @@ export class ExpenseController {
             
             for (const expense of expenses) {
                 this.view.showExpenseInTable({
+                                            idExpense: expense.getIdExpense(),
                                             dateExpense: expense.getFormattedDate(),
                                             amountExpense: expense.getAmount(),
                                             categoryExpense: expense.getCategoryExpense(),

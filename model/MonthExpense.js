@@ -28,7 +28,19 @@ export class MonthExpense {
         return this.expenses
                             .filter((expense) => expense.getCategoryExpense() == category)
                             .reduce((total, expense) => total + expense.getAmount(), 0);    
-    }                       
+    }           
+    
+    deleteExpense(idExpense) {
+        this.expenses = this.expenses.filter(expenses => expenses.getIdExpense() !== Number(idExpense));
+    }
+
+    updateExpense(idExpense, updateData) {
+        const index = this.expenses.findIndex(expenses => expenses.getIdExpense() === Number(idExpense));
+        if (index !== -1) {
+            Object.assign(this.expenses[index], updateData);
+        }
+
+    }
 
     getMonthId() {
         return this.monthId;
