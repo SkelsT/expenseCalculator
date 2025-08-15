@@ -23,25 +23,22 @@ export class ExpenseController {
 
     handleExpenseSubmit(expenseData) {
         try {
-        const { amountExpense, categoryExpense, dateExpense, descriptionExpense } = this.view.getExpenseInput();
-        
-        const expense = new Expense(amountExpense, categoryExpense, new Date(dateExpense), descriptionExpense);
-        const monthId = expense.getDateMonthlyExpense();
+            const { amountExpense, categoryExpense, dateExpense, descriptionExpense } = this.view.getExpenseInput();
+            
+            const expense = new Expense(amountExpense, categoryExpense, new Date(dateExpense), descriptionExpense);
+            const monthId = expense.getDateMonthlyExpense();
 
-        this.calculator.addExpenseToMonth(monthId, expense);
-        this.view.clearExpenseInputs();
-        this.view.clearError();
+            this.calculator.addExpenseToMonth(monthId, expense);
+            this.view.clearExpenseInputs();
+            this.view.clearError();
 
-
-
-        const selectedMonth = this.view.monthSelector.value;
-        if(selectedMonth === monthId) {
-            this.handleMonthChange();
-        } 
+            const selectedMonth = this.view.monthSelector.value;
+            if(selectedMonth === monthId) {
+                this.handleMonthChange();
+            } 
         } catch (error) {
             this.view.showError(error.message);
         }
-    
     }
 
 

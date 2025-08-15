@@ -7,9 +7,10 @@ export default class UserView {
 
 
 getUserInput() {
+    const salaryValue = this.salaryInput.value.trim();
     return {
-        namePerson: this.nameInput.value,
-        salaryPerson: parseFloat(this.salaryInput.value)
+        namePerson: this.nameInput.value.trim(),
+        salaryPerson: salaryValue === '' ? undefined : parseFloat(salaryValue)
     };
 }
 
@@ -43,6 +44,7 @@ showError(message) {
 clearError() {
     const errorDiv = document.querySelector("#user-error-message");
     errorDiv.textContent = "";
+    errorDiv.style.display = "none";
     }
 
 

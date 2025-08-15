@@ -41,7 +41,7 @@ export class Expense {
     getDateMonthlyExpense()
     {
         const year = this.dateExpense.getFullYear();
-        const month = String(this.dateExpense.getUTCMonth() + 1).padStart(2, '0');
+        const month = String(this.dateExpense.getMonth() + 1).padStart(2, '0');
         return `${year}-${month}`;
     }
 
